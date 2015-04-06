@@ -8,5 +8,10 @@ $app->get('/', function(){
 
 $app->get('/hello', function() use ($app){
     // the following statement invokes and displays the hello.php View
-    $app->render('hello.php');
+    echo 'Hello World';
+});
+
+$app->get('/hello/:name', function($name) use ($app){
+    // the following statement invokes and displays the hello.php View
+    echo 'Hello World ' . $name . '!';
 });
