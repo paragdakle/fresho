@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Browse</title>
+  <title>Register</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -20,7 +20,6 @@
       <ul class="nav navbar-nav pull-right">
         <li><a href="#">Home</a></li>
 		<li class="header-active"><a href="#">Browse</a></li>
-        <li><a href="#">Sign Up</a></li>
         <li><a href="#">Sign In</a></li>
       </ul>
     </div>
@@ -30,34 +29,33 @@
 <div class="container-fluid">
   <div class="body col-sm-12">
 	<div class="container">
-	  <ul class="nav nav-tabs">
-		<li class="active"><a href="#">Browse by Fruits</a></li>
-		<li><a href="#">Browse by Juices</a></li>
-		<li><a href="#">Browse by Salads</a></li>
-		<li><a href="#">Browse by Nutrients</a></li>
-	  </ul>
-
-	  <div class="row">
-		<div class="col-md-4">
-		  <div class="item-details">
-			<img src="resources/images/fresh-fruit-high-resolution-background-1680x1050.jpg" class="img-thumbnail" alt="Kiwi">
-			<dl>
-				<dt>Kiwi</dt>
-				<dd>- Cost: Rs. 100 per kg.</dd>
-				<dd>- Availability: Yes</dd>
-				<dd>Click for more details<dd>
-			</dl>
-		  </div>
+		<div class="col-sm-7 display-feature-box">
+			
 		</div>
-		<div class="col-md-4">
-		  <div class="item-details">
-			<img src="resources/images/fruits-watermelon-free-hd-wallpapers-1680x1050.jpeg" class="img-thumbnail" alt="Watermelon">
-		  </div>
-		</div>
-		<div class="col-md-4"> 
-		  <div class="item-details">
-			<img src="resources/images/Background-hd-Mango-Wallpaper-Download.jpg" class="img-thumbnail" alt="mango">
-		  </div>
+		<div class="col-sm-5 login-box">
+			<ul class="nav nav-tabs">
+				<li class="active"><a href="#">Register with Email</a></li>
+				<li><a href="#">Register with Mobile Number</a></li>
+			</ul>
+			<form role="form" style="margin-top: 50px;">
+			  <div class="form-group">
+				<label for="mo_number">Mobile Number</label>
+				<input type="text" class="form-control" id="mo_number">
+			  </div>
+			  <div class="form-group">
+				<label for="email">Email address:</label>
+				<input type="email" class="form-control" id="email">
+			  </div>
+			  <div class="form-group">
+				<label for="pwd">Password:</label>
+				<input type="password" class="form-control" id="pwd">
+			  </div>
+			  <div class="form-group">
+				<label for="cfrm-pwd">Confirm Password:</label>
+				<input type="password" class="form-control" id="cfrm-pwd">
+			  </div>
+			  <button type="submit" class="btn btn-default">Submit</button>
+			</form>
 		</div>
 	  </div>
 	</div>

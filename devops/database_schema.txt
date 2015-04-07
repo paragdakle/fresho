@@ -1,0 +1,114 @@
+Table schema document:
+
+1.	Collection: User
+	Description: Collection will contain all the user related data.
+	Schema:
+	{
+		username,
+		name,
+		password,
+		mobile_number,
+		email,
+		address,
+		area,
+		city,
+		state,
+		country,
+		previous_orders: {
+			<order_id> : { 
+				order_details,
+				order_status
+			},..
+		},
+		last_login,
+		registration_date,
+		total_order_count,
+		total_order_cost,
+		role
+	}
+
+2. 	Collection: Fruit
+	Description: Collection will contain all the fruit related data.
+	Schema:
+	{
+		fruit_id,
+		name,
+		description,
+		current_rate,
+		availability,
+		nutrients: {
+			<nutrient_id> : <concentration>,
+			..
+		},
+		cost_rate,
+		vendor_id,
+		desired_profit,
+		characteristics: []
+	}
+	
+3. 	Collection: Juice
+	Description: Collection will contain all the juice related data.
+	Schema:
+	{
+		juice_id,
+		name,
+		description,
+		constituents: {
+			<fruit_id> : <concentration>,
+			..
+		},
+		current_rate,
+		availability,
+		nutrients: {
+			<nutrient_id> : <concentration>,
+			..
+		},
+		cost_rate,
+		desired_profit,
+		characteristics: []
+	}
+	
+4. 	Collection: Salad
+	Description: Collection will contain all the salad related data.
+	Schema:
+	{
+		salad_id,
+		name,
+		description,
+		constituents: {
+			<fruit_id> : <concentration>,
+			..
+		},
+		current_rate,
+		availability,
+		nutrients: {
+			<nutrient_id> : <concentration>,
+			..
+		},
+		cost_rate,
+		desired_profit,
+		characteristics: []
+	}
+	
+5. 	Collection: Nutrient
+	Description: Collection will contain all the nutrient related data.
+	Schema:
+	{
+		nutrient_id,
+		name,
+		description,
+		fruits: {
+			<fruit_id> : <concentration>,
+			..
+		},
+		characteristics: []
+	}
+	
+6. 	Collection: Order
+	Description: Collection will contain all the user order related data.
+
+7.	Collection: Vendor
+	Description: Collection will contain all the fruit vendor related data.
+	
+8.	Collection: Feedback
+	Description: Collection will contain all the feedback related data.
