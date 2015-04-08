@@ -88,6 +88,12 @@
 }
 
 .login-box {
-	height: 500px;
+	height: 400px;
 	margin-bottom: 50px;
+}
+
+.register-box {
+	height: 400px;
+	margin-bottom: 50px;
+	padding: 0px;
 }
