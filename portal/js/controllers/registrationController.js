@@ -23,7 +23,7 @@ app.controller('registrationController', function($scope, $http) {
 		
 		enc_password = GibberishAES.enc($scope.password, $scope.username, "0101010101010101111110001");
 		
-		$http.post("/register/" + $scope.username + "/" + enc_password)
+		$http.post("/register/" + $scope.username + "/" + Utf8.encode(enc_password))
 			.success(function(response) {
 				alert("registration successful. Response: " + response);
 			});
