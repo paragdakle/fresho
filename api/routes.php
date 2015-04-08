@@ -1,5 +1,5 @@
 <?php
 
     include 'Routes/getRoutes.php';
-//    include 'Routes/postRoutes.php';
+    include 'Routes/postRoutes.php';
 
