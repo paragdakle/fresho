@@ -10,7 +10,7 @@
   <script src="js/jquery.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <script src="js/angular.min.js"></script>
-  <script type='text/javascript' src='JavaScript/gibberish-aes.js'></script>
+  <script src='js/gibberish-aes.js'></script>
   <script src="js/controllers/registrationController.js"></script>
 </head>
 <body>
@@ -68,7 +68,7 @@
 						<!--<span ng-show="registrationForm.cfrm-pwd.$error.required">Confirm Password is required.</span>-->
 					</span>
 				  </div>
-				  <button type="submit" class="btn btn-primary" ng-click="register()" <!--ng-disabled="registrationForm.username.$dirty && registrationForm.username.$invalid || registrationForm.cfrm-pwd.$dirty && registrationForm.cfrm-pwd.$invalid || registrationForm.pwd.$dirty && registrationForm.pwd.$invalid"-->>Submit</button>
+				  <button type="submit" class="btn btn-primary" ng-click="register()">Submit</button>
 				</form>
 			</div>
 			<div class="col-sm-3">				
