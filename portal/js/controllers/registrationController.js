@@ -1,7 +1,7 @@
 
 var app = angular.module('registrationApp', []);
 
-app.controller('registrationController', function($scope) {
+app.controller('registrationController', function($scope, $http) {
     
 	$scope.register = function() {
 		if($scope.username == "") {
@@ -21,6 +21,11 @@ app.controller('registrationController', function($scope) {
 			return false;
 		}
 		
+		enc_password = GibberishAES.enc($scope.password, $scope.username, "0101010101010101111110001");
 		
+		$http.post('/register/" + $scope.username + "/" + enc_password)
+			.success(function(response) {
+				alert("registration successful. Response: " + response);
+			});
 	}
 });

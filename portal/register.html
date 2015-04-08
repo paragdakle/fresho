@@ -10,9 +10,10 @@
   <script src="js/jquery.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <script src="js/angular.min.js"></script>
+  <script type='text/javascript' src='JavaScript/gibberish-aes.js'></script>
   <script src="js/controllers/registrationController.js"></script>
 </head>
-<body ng-app="registrationApp" ng-controller="registrationController">
+<body>
 
 	<nav class="navbar navbar-default">
 		<div class="container">
@@ -45,20 +46,29 @@
 					<li class="active col-sm-5"><a disabled><span class="glyphicon glyphicon-pencil"></span>  Step 1: Register</a></li>
 					<li class="col-sm-5"><a disabled><span class="glyphicon glyphicon-ok"></span>  Step 2: Verify</a></li>
 				</ul>
-				<form role="form" style="margin: 35px 20px;">
+				<form role="form" style="margin: 35px 20px;" ng-app="registrationApp" ng-controller="registrationController" name="registrationForm">
 				  <div class="form-group">
 					<label for="username">Username</label>
-					<input type="text" class="form-control" id="username" placeholder="Enter mobile number / email address" ng-model="username">
+					<input type="text" class="form-control" id="username" name="username" placeholder="Enter mobile number / email address" ng-model="username">
+					<span style="color:red" ng-show="registrationForm.username.$dirty && registrationForm.username.$invalid">
+						<!--<span ng-show="registrationForm.username.$error.required">Username is required.</span>-->
+					</span>
 				  </div>
 				  <div class="form-group">
 					<label for="pwd">Password:</label>
-					<input type="password" class="form-control" id="pwd" ng-model="password">
+					<input type="password" class="form-control" id="pwd" name="pwd" ng-model="password">
+					<span style="color:red" ng-show="registrationForm.pwd.$dirty && registrationForm.pwd.$invalid">
+						<!--<span ng-show="registrationForm.pwd.$error.required">Password is required.</span>-->
+					</span>
 				  </div>
 				  <div class="form-group">
 					<label for="cfrm-pwd">Confirm Password:</label>
-					<input type="password" class="form-control" id="cfrm-pwd" ng-model="confirm_password">
+					<input type="password" class="form-control" id="cfrm-pwd" name="cfrm-pwd" ng-model="confirm_password">
+					<span style="color:red" ng-show="registrationForm.cfrm-pwd.$dirty && registrationForm.cfrm-pwd.$invalid">
+						<!--<span ng-show="registrationForm.cfrm-pwd.$error.required">Confirm Password is required.</span>-->
+					</span>
 				  </div>
-				  <button type="submit" class="btn btn-primary" ng-click="register()">Submit</button>
+				  <button type="submit" class="btn btn-primary" ng-click="register()" <!--ng-disabled="registrationForm.username.$dirty && registrationForm.username.$invalid || registrationForm.cfrm-pwd.$dirty && registrationForm.cfrm-pwd.$invalid || registrationForm.pwd.$dirty && registrationForm.pwd.$invalid"-->>Submit</button>
 				</form>
 			</div>
 			<div class="col-sm-3">				
