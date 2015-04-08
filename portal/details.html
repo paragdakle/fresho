@@ -11,8 +11,21 @@
 </head>
 <body>
 
-	<nav class="navbar navbar-default"></nav>
-	<script>$(".navbar.navbar-default").load("header-normal.html");</script>
+	<nav class="navbar navbar-default">
+		<div class="container">
+			<div class="navbar-header">
+			  <a class="navbar-brand" href="#">WebSiteName</a>
+			</div>
+			<div>
+			  <ul class="nav navbar-nav pull-right">
+				<li id="home"><a href="index.html">Home</a></li>
+				<li class="header-active" id="browse"><a href="details.html">Browse</a></li>
+				<li id="register"><a href="register.html">Sign Up</a></li>
+				<li id="login"><a href="login.html">Sign In</a></li>
+			  </ul>
+			</div>
+		</div>
+	</nav>
 
 	<div class="container-fluid">
 	  <div class="body col-sm-12">
