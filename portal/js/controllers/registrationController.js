@@ -23,11 +23,10 @@ app.controller('registrationController', function($scope, $http) {
 		
 		$http.post("/register/" + encodeURIComponent($scope.username) + "/" + encodeURIComponent(btoa($scope.password)))
 			.success(function(response) {
-				var data = JSON.parse(response);
-				if(data.error == 400) {
-					alert(data.message);
+				if(response.status == 400) {
+					alert(response.message);
 				}
-				else if(data.error == 200) {
+				else if(response.status == 200) {
 					$("#register-tab").removeClass("active");
 					$("#verify-tab").addClass("active");
 				}
