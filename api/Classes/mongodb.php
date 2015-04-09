@@ -54,9 +54,9 @@ class MongoDB
 		return true;
 	}
 	
-	public public function __destruct() {
+	public function __destruct() {
         $connection = null;
-		$db = null;
-		$collection = null;
+        $db = null;
+        $collection = null;
     }
 }
