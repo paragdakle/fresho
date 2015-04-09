@@ -71,7 +71,7 @@
 				</form>
 				<form role="form" style="margin: 35px 20px;" name="validationForm" ng-show="changeForm">
 				  <div class="form-group">
-					<label for="verificationCode">Please enter the verification code sent to {{verficationRecepient}}</label>
+					<label for="verificationCode" style="margin-top: 10px;">Please enter the verification code sent to {{username}}</label>
 					<input type="text" class="form-control" id="verificationCode" name="verificationCode" placeholder="Enter verification code" ng-model="verificationCode">
 					<span style="color:red" ng-show="validationForm.verificationCode.$dirty && validationForm.verificationCode.$invalid">
 						<!--<span ng-show="validationForm.verificationCode.$error.required">Username is required.</span>-->
