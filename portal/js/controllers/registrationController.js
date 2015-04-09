@@ -21,9 +21,7 @@ app.controller('registrationController', function($scope, $http) {
 			return false;
 		}
 		
-		enc_password = GibberishAES.enc($scope.password, $scope.username, "0101010101010101111110001");
-		
-		$http.post("/register/" + encodeURIComponent($scope.username) + "/" + encodeURIComponent(enc_password))
+		$http.post("/register/" + encodeURIComponent($scope.username) + "/" + encodeURIComponent(btoa($scope.password)))
 			.success(function(response) {
 				alert("registration successful. Response: " + response);
 			});
