@@ -1,6 +1,6 @@
 <?php
 
-class MongoDB
+class MongoWrapperClass
 {
 	private $connection = null;
 	private $db = null;
