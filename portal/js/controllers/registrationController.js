@@ -29,7 +29,17 @@ app.controller('registrationController', function($scope, $http) {
 				else if(response.status == 200) {
 					$("#register-tab").removeClass("active");
 					$("#verify-tab").addClass("active");
+					$scope.changeForm = true;
 				}
 			});
+	}
+	
+	$scope.verify = function() {
+		if($scope.verificationCode == "") {
+			alert("Verification code cannot be empty");
+			return false;
+		}
+		
+		alert($scope.verificationCode);
 	}
 });

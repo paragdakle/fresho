@@ -40,12 +40,12 @@
 			<div class="col-sm-3">
 				
 			</div>
-			<div class="col-sm-6 register-box">
+			<div class="col-sm-6 register-box" ng-app="registrationApp" ng-controller="registrationController" ng-init="changeForm=false">
 				<ul class="nav nav-pills">
 					<li class="active col-sm-5" id="register-tab"><a disabled><span class="glyphicon glyphicon-pencil"></span>  Step 1: Register</a></li>
 					<li class="col-sm-5" id="verify-tab"><a disabled><span class="glyphicon glyphicon-ok"></span>  Step 2: Verify</a></li>
 				</ul>
-				<form role="form" style="margin: 35px 20px;" ng-app="registrationApp" ng-controller="registrationController" name="registrationForm">
+				<form role="form" style="margin: 35px 20px;" name="registrationForm" ng-show="{{!changeForm}}">
 				  <div class="form-group">
 					<label for="username">Username</label>
 					<input type="text" class="form-control" id="username" name="username" placeholder="Enter mobile number / email address" ng-model="username">
@@ -68,6 +68,16 @@
 					</span>
 				  </div>
 				  <button type="submit" class="btn btn-primary" ng-click="register()">Submit</button>
+				</form>
+				<form role="form" style="margin: 35px 20px;" name="validationForm" ng-show="{{changeForm}}">
+				  <div class="form-group">
+					<label for="verificationCode">Please enter the verification code sent to {{verficationRecepient}}</label>
+					<input type="text" class="form-control" id="verificationCode" name="verificationCode" placeholder="Enter verification code" ng-model="verificationCode">
+					<span style="color:red" ng-show="validationForm.verificationCode.$dirty && validationForm.verificationCode.$invalid">
+						<!--<span ng-show="validationForm.verificationCode.$error.required">Username is required.</span>-->
+					</span>
+				  </div>
+				  <button type="submit" class="btn btn-primary" ng-click="verify()">Verify</button>
 				</form>
 			</div>
 			<div class="col-sm-3">				
