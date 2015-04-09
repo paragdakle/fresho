@@ -98,3 +98,17 @@
 	margin-bottom: 50px;
 	padding: 0px;
 }
+
+.profile-option-box {
+	height: 650px;
+	margin-top: 30px;
+	margin-bottom: 20px;
+	border-right: 1px solid #ccc;
+	padding-right: 0px;
+}
+
+.profile-detail-box {
+	height: 650px;
+	margin-bottom: 20px;
+	margin-top: 30px;
+}
