@@ -23,7 +23,14 @@ app.controller('registrationController', function($scope, $http) {
 		
 		$http.post("/register/" + encodeURIComponent($scope.username) + "/" + encodeURIComponent(btoa($scope.password)))
 			.success(function(response) {
-				alert("registration successful. Response: " + response);
+				var data = JSON.parse(response);
+				if(data.error == 400) {
+					alert(data.message);
+				}
+				else if(data.error == 200) {
+					$("#register-tab").removeClass("active");
+					$("#verify-tab").addClass("active");
+				}
 			});
 	}
 });
