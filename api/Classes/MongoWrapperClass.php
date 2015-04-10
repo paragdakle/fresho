@@ -12,9 +12,9 @@ class MongoWrapperClass
 		$this->collection = $this->db->selectCollection($colname);
 	}
 	
-	public function get() {
+	public function get($projections) {
 		$record = null;
-		$record = $this->collection->find();
+		$record = $this->collection->find(array(), $projections);
 		return $record;
 	}
 	

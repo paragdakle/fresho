@@ -10,7 +10,7 @@ $app->get("/settings/getUsers", function() {
 	
 	$db = new MongoWrapperClass("fresho", "user");
 
-    $users = $db->get();
+    $users = $db->get(array("password" => 0, "_id" => 0));
     if($users !== null) {
         $ret["users"] = iterator_to_array($users);
     }
