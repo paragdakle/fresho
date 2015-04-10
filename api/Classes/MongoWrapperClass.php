@@ -12,6 +12,12 @@ class MongoWrapperClass
 		$this->collection = $this->db->selectCollection($colname);
 	}
 	
+	public function get() {
+		$record = null;
+		$record = $this->collection->find();
+		return $record;
+	}
+	
 	//methods to get data
 	public function getOne($search_parameters) {
 		$record = null;
@@ -19,7 +25,7 @@ class MongoWrapperClass
 		return $record;
 	}
 	
-	public function getMany($document) {
+	public function getMany($search_parameters) {
 		$record = null;
 		$record = $this->collection->find($search_parameters);
 		return $record;
