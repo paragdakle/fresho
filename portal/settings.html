@@ -56,6 +56,7 @@
 						<table class="table table-bordered" style="margin-bottom: 0px;">
 							<thead>
 								<tr>
+									<th>Username</th>
 									<th>Name</th>
 									<th>Mobile No.</th>
 									<th>Area</th>
@@ -66,6 +67,7 @@
 							</thead>
 							<tbody>
 								<tr ng-repeat="user in users | orderBy : 'name'">
+									<td>{{ user.username}}</td>
 									<td>{{ user.name}}</td>
 									<td>{{ user.mobile_number}}</td>
 									<td>{{ user.area}}</td>
