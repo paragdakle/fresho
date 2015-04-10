@@ -100,7 +100,7 @@
 }
 
 .profile-option-box {
-	height: 640px;
+	height: 600px;
 	margin-top: 20px;
 	margin-bottom: 5px;
 	border-right: 1px solid #ccc;
@@ -108,7 +108,26 @@
 }
 
 .profile-detail-box {
-	height: 640px;
+	height: 600px;
 	margin-bottom: 5px;
 	margin-top: 30px;
+}
+
+.settings-option-box {
+	height: 600px;
+	margin-top: 20px;
+	margin-bottom: 5px;
+	border-right: 1px solid #ccc;
+	padding: 0px;
+}
+
+.settings-detail-box {
+	height: 600px;
+	margin-bottom: 5px;
+	margin-top: 30px;
+}
+
+.item-list-table {
+	height: 400px !important;
+    overflow: auto;
 }

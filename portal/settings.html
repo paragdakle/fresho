@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <link rel="shortcut icon" href="resources/favicon.ico">
-  <title>Profile</title>
+  <title>Settings</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -10,9 +10,9 @@
   <script src="js/jquery.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <script src="js/angular.min.js"></script>
-  <script src="js/controllers/profileController.js"></script>
+  <script src="js/controllers/settingsController.js"></script>
 </head>
-<body ng-app="profileApp" ng-controller="profileController">
+<body ng-app="settingsApp" ng-controller="settingsController" ng-init="adduser=false">
 
 	<nav class="navbar navbar-default">
 		<div class="container">
@@ -23,7 +23,7 @@
 			  <ul class="nav navbar-nav pull-right">
 				<li id="home"><a href="index.html">Home</a></li>
 				<li id="browse"><a href="details.html">Browse</a></li>
-				<li class="header-active" id="user-profile"><a href="profile.html"><span class="glyphicon glyphicon-user"></span> {{displayName}}</a></li>
+				<li id="user-profile"><a href="profile.html"><span class="glyphicon glyphicon-user"></span> {{displayName}}</a></li>
 				<li class="header-active" id="settings" ng-show="admin"><a href="settings.html"><span class="glyphicon glyphicon-cog"></span></a></li>
 				<li id="logout" ng-click="logout()"><a><span class="glyphicon glyphicon-log-out"></span></a></li>
 			  </ul>
@@ -34,21 +34,69 @@
 	<div class="container-fluid">
 		<div class="body col-sm-12">
 			<div class="container">
-				<div class="col-sm-3 profile-option-box">
+				<div class="col-sm-3 settings-option-box">
 				<ul class="nav nav-pills nav-stacked">
-					<li class="active"><a href="#">Basic Information</a></li>
-					<li ng-hide="admin"><a href="#">Order History</a></li>
-					<li><a href="#">Change Password</a></li>
+					<li class="active"><a href="#">Users</a></li>
+					<li><a href="#">Orders</a></li>
+					<li><a href="#">Vendors</a></li>
+					<li><a href="#">Fruits</a></li>
+					<li><a href="#">Juices</a></li>
+					<li><a href="#">Salads</a></li>
+					<li><a href="#">Nutrients</a></li>
+					<li><a href="#">Statistics</a></li>
 				</ul>
 				</div>
-				<div class="col-sm-9 profile-detail-box">
-					<form role="form" style="margin-left: 10px" name="profileForm">
+				<div class="col-sm-9 settings-detail-box" style="padding-left: 0px;">
+				
+					<input id="add-checkbox" type="checkbox" ng-model="adduseroption" style="opacity:0;"/>
+					<label for="add-checkbox" ng-hide="adduseroption"><a><span class="glyphicon glyphicon-plus"></span></a> Add User</label>
+					<label for="add-checkbox" ng-show="adduseroption" class="pull-right"><span class="glyphicon glyphicon-remove"></span> Cancel</label>
+					
+					<div class="item-list-table" ng-hide="adduseroption" style="margin-left: 15px; margin-top: 10px;">
+						<table class="table table-bordered" style="margin-bottom: 0px;">
+							<thead>
+								<tr>
+									<th>Name</th>
+									<th>Mobile No.</th>
+									<th>Area</th>
+									<th>Last Online</th>
+									<th>Total Orders</th>
+									<th>Total Billing</th>
+								</tr>
+							</thead>
+						</table>
+					
+						<table class="table table-bordered">
+							<tr ng-repeat="user in users | orderBy : 'name'">
+								<td>{{ user.name}}</td>
+								<td>{{ user.mobile_number}}</td>
+								<td>{{ user.area}}</td>
+								<td>{{ user.last_login}}</td>
+								<td>{{ user.total_order_count}}</td>
+								<td>{{ user.total_order_cost}}</td>
+							</tr>
+							<tr ng-show="!users">
+								<td>No records found</td>
+							</tr>
+						</table>
+					</div>
+					
+					<form role="form" style="margin-left: 20px; margin-top: 10px;" name="profileForm" ng-show="adduseroption">
 					  <div class="form-group">
-						<label for="name">Name</label>
-						<input type="text" class="form-control" id="name" name="name" placeholder="Enter your name" ng-model="name">
-						<span style="color:red" ng-show="profileForm.name.$dirty && profileForm.name.$invalid">
-							<!--<span ng-show="profileForm.name.$error.required">Username is required.</span>-->
-						</span>
+					    <div class="col-sm-10" style="padding-left: 0px; margin-bottom: 15px;">
+							<label for="name">Name</label>
+							<input type="text" class="form-control" id="name" name="name" placeholder="Enter your name" ng-model="name">
+							<span style="color:red" ng-show="profileForm.name.$dirty && profileForm.name.$invalid">
+								<!--<span ng-show="profileForm.name.$error.required">Username is required.</span>-->
+							</span>
+						</div>
+						<div class="col-sm-2" style="padding: 0px; margin-bottom: 15px;">
+						  <label for="role">Role (select one):</label>
+						  <select class="form-control" id="role" name="role" ng-model="role">
+							<option value="admin">admin</option>
+							<option value="user" selected>user</option>
+						  </select>
+						</div>
 					  </div>
 					  <div class="form-group">
 						<div class="col-sm-6" style="padding-left: 0px; margin-bottom: 15px;">
@@ -90,14 +138,14 @@
 						</div>
 					  </div>
 					  <div class="form-group">
-					    <div class="col-sm-6" style="padding-left: 0px; margin-top: 15px;">
+					    <div class="col-sm-6" style="padding-left: 0px; margin: 15px 0px;">
 							<label for="state">State</label>
 							<input type="text" class="form-control" id="state" name="state" placeholder="Enter your state" ng-model="state">
 							<span style="color:red" ng-show="profileForm.state.$dirty && profileForm.state.$invalid">
 								<!--<span ng-show="profileForm.state.$error.required">Password is required.</span>-->
 							</span>
 						</div>
-						<div class="col-sm-6" style="padding: 0px; margin-top: 15px;">
+						<div class="col-sm-6" style="padding: 0px; margin: 15px 0px;">
 							<label for="country">Country</label>
 							<input type="text" class="form-control" id="country" name="country" placeholder="Enter your country" ng-model="country">
 							<span style="color:red" ng-show="profileForm.country.$dirty && profileForm.country.$invalid">
@@ -105,8 +153,7 @@
 							</span>
 						</div>
 					  </div>
-					  
-					  <button type="submit" class="btn btn-primary" ng-click="update()" style="margin-top: 15px;">Update</button>
+					  <button type="submit" class="btn btn-primary" ng-click="adduser()">Add</button>
 					</form>
 				</div>
 			</div>
