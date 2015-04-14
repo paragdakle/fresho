@@ -1,9 +1,9 @@
 				<div class="col-sm-3 settings-option-box">
 					<ul class="nav nav-pills nav-stacked">
-						<li class="active"><a href="#">Users</a></li>
+						<li><a href="#">Users</a></li>
 						<li><a href="#">Orders</a></li>
 						<li><a href="#">Vendors</a></li>
-						<li><a href="#">Fruits</a></li>
+						<li  class="active"><a href="#">Fruits</a></li>
 						<li><a href="#">Juices</a></li>
 						<li><a href="#">Salads</a></li>
 						<li><a href="#">Nutrients</a></li>
@@ -20,17 +20,18 @@
 						<table class="table table-bordered" style="margin-bottom: 0px;">
 							<thead>
 								<tr>
-									<th>Username</th>
 									<th>Name</th>
-									<th>Mobile No.</th>
-									<th>Area</th>
-									<th>Last Online</th>
-									<th>Total Orders</th>
+									<th>Cost Price</th>
+									<th>Selling Price</th>
+									<th>Desired Profit</th>
+									<th>Vendor</th>
+									<th>Total Sold</th>
 									<th>Total Billing</th>
+									<th>Availability</th>
 								</tr>
 							</thead>
 							<tbody>
-								<tr ng-repeat="user in users | orderBy : 'name'">
+								<tr ng-repeat="fruit in fruits | orderBy : 'name'">
 									<td>{{ user.username}}</td>
 									<td>{{ user.name}}</td>
 									<td>{{ user.mobile_number}}</td>
