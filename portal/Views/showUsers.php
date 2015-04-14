@@ -10,16 +10,17 @@
 						<li><a href="#">Statistics</a></li>
 					</ul>
 				</div>
-				<div class="col-sm-9 settings-detail-box" style="padding-left: 0px;">
+				<div class="col-sm-9 settings-detail-box" style="padding-left: 0px;" ng-cloak>
 				
 					<input id="add-checkbox" type="checkbox" ng-model="adduseroption" style="opacity:0;"/>
-					<label for="add-checkbox" ng-hide="adduseroption"><a><span class="glyphicon glyphicon-plus"></span></a> Add User</label>
+					<label for="add-checkbox" ng-hide="adduseroption"><a><span class="glyphicon glyphicon-plus"></span></a> Add {{currentTab}}</label>
 					<label for="add-checkbox" ng-show="adduseroption" class="pull-right"><span class="glyphicon glyphicon-remove"></span> Cancel</label>
 					
 					<div class="item-list-table" ng-hide="adduseroption" style="margin-left: 15px; margin-top: 10px;">
 						<table class="table table-bordered" style="margin-bottom: 0px;">
 							<thead>
 								<tr>
+									<th>Username</th>
 									<th>Name</th>
 									<th>Mobile No.</th>
 									<th>Area</th>
@@ -28,17 +29,20 @@
 									<th>Total Billing</th>
 								</tr>
 							</thead>
+							<tbody>
+								<tr ng-repeat="user in users | orderBy : 'name'">
+									<td>{{ user.username}}</td>
+									<td>{{ user.name}}</td>
+									<td>{{ user.mobile_number}}</td>
+									<td>{{ user.area}}</td>
+									<td>{{ user.last_login}}</td>
+									<td>{{ user.total_order_count}}</td>
+									<td>{{ user.total_order_cost}}</td>
+								</tr>
+							</tbody>
 						</table>
 					
 						<table class="table table-bordered">
-							<tr ng-repeat="user in users | orderBy : 'name'">
-								<td>{{ user.name}}</td>
-								<td>{{ user.mobile_number}}</td>
-								<td>{{ user.area}}</td>
-								<td>{{ user.last_login}}</td>
-								<td>{{ user.total_order_count}}</td>
-								<td>{{ user.total_order_cost}}</td>
-							</tr>
 							<tr ng-show="!users">
 								<td>No records found</td>
 							</tr>
