@@ -39,7 +39,5 @@ app.controller('registrationController', function($scope, $http) {
 			alert("Verification code cannot be empty");
 			return false;
 		}
-		
-		alert($scope.verificationCode);
 	}
 });

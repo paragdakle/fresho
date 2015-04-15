@@ -1,13 +1,13 @@
 				<div class="col-sm-3 settings-option-box">
 					<ul class="nav nav-pills nav-stacked">
-						<li><a href="#">Users</a></li>
-						<li><a href="#">Orders</a></li>
-						<li><a href="#">Vendors</a></li>
-						<li  class="active"><a href="#">Fruits</a></li>
-						<li><a href="#">Juices</a></li>
-						<li><a href="#">Salads</a></li>
-						<li><a href="#">Nutrients</a></li>
-						<li><a href="#">Statistics</a></li>
+						<li ng-click="showUsers()"><a href="#">Users</a></li>
+						<li ng-click="showOrders()"><a href="#">Orders</a></li>
+						<li ng-click="showVendors()"><a href="#">Vendors</a></li>
+						<li ng-click="showFruits()" class="active"><a href="#">Fruits</a></li>
+						<li ng-click="showJuices()"><a href="#">Juices</a></li>
+						<li ng-click="showSalads()"><a href="#">Salads</a></li>
+						<li ng-click="showNutrients()"><a href="#">Nutrients</a></li>
+						<li ng-click="showSatistics()"><a href="#">Statistics</a></li>
 					</ul>
 				</div>
 				<div class="col-sm-9 settings-detail-box" style="padding-left: 0px;" ng-cloak>
@@ -31,20 +31,21 @@
 								</tr>
 							</thead>
 							<tbody>
-								<tr ng-repeat="fruit in fruits | orderBy : 'name'">
-									<td>{{ user.username}}</td>
-									<td>{{ user.name}}</td>
-									<td>{{ user.mobile_number}}</td>
-									<td>{{ user.area}}</td>
-									<td>{{ user.last_login}}</td>
-									<td>{{ user.total_order_count}}</td>
-									<td>{{ user.total_order_cost}}</td>
+								<tr ng-repeat="item in table_items | orderBy : 'name'">
+									<td>{{ item.name}}</td>
+									<td>{{ item.cost_price}}</td>
+									<td>{{ item.selling_price}}</td>
+									<td>{{ item.desired_profit}}</td>
+									<td>{{ item.vendor_id}}</td>
+									<td>{{ item.total_units_sold}}</td>
+									<td>{{ item.total_billing}}</td>
+									<td>{{ item.availability}}</td>
 								</tr>
 							</tbody>
 						</table>
 					
 						<table class="table table-bordered">
-							<tr ng-show="!users">
+							<tr ng-show="!table_items">
 								<td>No records found</td>
 							</tr>
 						</table>

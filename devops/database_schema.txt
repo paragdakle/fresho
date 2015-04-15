@@ -34,15 +34,17 @@ Table schema document:
 		fruit_id,
 		name,
 		description,
-		current_rate,
+		selling_price,
 		availability,
 		nutrients: {
 			<nutrient_id> : <concentration>,
 			..
 		},
-		cost_rate,
+		cost_price,
 		vendor_id,
 		desired_profit,
+		total_units_sold,
+		total_billing,
 		characteristics: []
 	}
 	
@@ -57,14 +59,16 @@ Table schema document:
 			<fruit_id> : <concentration>,
 			..
 		},
-		current_rate,
+		selling_price,
 		availability,
 		nutrients: {
 			<nutrient_id> : <concentration>,
 			..
 		},
-		cost_rate,
+		cost_price,
 		desired_profit,
+		total_units_sold,
+		total_billing,
 		characteristics: []
 	}
 	
@@ -79,14 +83,16 @@ Table schema document:
 			<fruit_id> : <concentration>,
 			..
 		},
-		current_rate,
+		selling_price,
 		availability,
 		nutrients: {
 			<nutrient_id> : <concentration>,
 			..
 		},
-		cost_rate,
+		cost_price,
 		desired_profit,
+		total_units_sold,
+		total_billing,
 		characteristics: []
 	}
 	
